@@ -1,0 +1,22 @@
+<img src="{{recipeDetail.images.LARGE.url}}"onerror="this.onerror=null; this.src='{{recipeDetail.images.REGULAR.url}}'"/>
+<h1>{{recipeDetail.label}}</h1>
+<h3>Serves {{recipeDetail.yield}}</h3>
+<h2><a href='{{recipeDetail.url}}'>Full Recipe</a></h2>
+<h2>Ingredients</h2>
+<ul> 
+{{#each recipeDetail.ingredientLines}}
+<li>{{this}}</li>
+{{/each}}
+</ul>
+<h2>Nutritional Value</h2>
+<ul>
+{{#each recipeDetail.totalNutrients}}
+<li>{{this.label}} - {{this.quantity}} {{this.unit}}</li>
+{{/each}}
+</ul>
+<form method="post" action="/profile/create/{{recipeDetail.uriSplit}}">
+<button type="submit">Save Recipe</button>
+</form>
+
+
+

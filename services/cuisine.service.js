@@ -24,6 +24,16 @@ getCuisine(cuisineName,cuisineType){
     })
 }
 
+getSingleItem(recipeId){
+    return this.myAxios.get(`/${recipeId}`, {
+        params: {
+            type: 'public',
+            app_id: process.env.CLIENT_ID,
+            app_key: process.env.CLIENT_SECRET,
+        }
+    })
+}
+
 getAllCuisines(){
     return this.myAxios.get('all', myCuisineKeys)
 }

@@ -1,5 +1,6 @@
+
 <h1> Recipes</h1>
 {{#each searchResult}}
-<h2> {{this.recipe.label}} </h2>
-<img src="{{this.recipe.images.THUMBNAIL.url}}"/>"
+<h2><a href="/recipeDetail/{{uri}}">{{label}} </a></h2>
+<img src="{{thumbnail}}"/>"
 {{/each}}
