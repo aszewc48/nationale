@@ -9,7 +9,7 @@ const isAuthenticated = (req,res,next) => {
 
 const isNotAuthenticated = (req,res,next) => {
     if(req.session.user) {
-        res.redirect('/main')
+        res.redirect('/profile')
         return
     } else {
         next()

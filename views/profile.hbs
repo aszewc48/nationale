@@ -1,1 +1,12 @@
 <h1>Welcome {{user.username}}!</h1>
+
+<a href="/search">Search Recipes</a>
+<a href="/logout">Logout</a>
+
+<h2>My Recipes</h2>
+
+{{#each data}}
+<h3><a href="/recipeDetail/{{this.apiId}}">{{this.label}}</a></h3>
+<img src="{{this.thumbnail}}"/>
+<a href="/delete/{{this._id}}">Remove Recipe</a>
+{{/each}}

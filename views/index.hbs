@@ -1,32 +1,19 @@
-<h1>{{appTitle}} 🚀</h1>
-<p>Welcome Ironhacker!</p>
-
+<style>
+    .home{
+        display: none;
+    }
+    .title{
+        font-family: BungeeSpice;
+        font-size: 3em;
+        text-align: center;
+        margin-top: 8%
+    }
+</style>
+<h1 class="title">Nationale</h1>
+<div class="homeSelections">
+<a href="/search">Search Recipes</a>
 <a href="/login">Login</a>
 <a href="/register">Register</a>
+</div>
 
-<form method="get" action="/getFoodCountry">
-    <label>Search:</label>
-    <input type="text" name="name" placeholder="Dish name">
-    <label>Cuisine:</label>
-    <select name="cuisine" >
-        <option value="American">American</option>
-        <option value="Asian">Asian</option>
-        <option value="British">British</option>
-        <option value="Caribbean">Caribbean</option>
-        <option value="Central%20Europe">Central Europe</option>
-        <option value="Chinese">Chinese</option>
-        <option value="Eastern%20Europe">Eastern Europe</option>
-        <option value="French">French</option>
-        <option value="Indian">Indian</option>
-        <option value="Italian">Italian</option>
-        <option value="Japanese">Japanese</option>
-        <option value="Kosher">Kosher</option>
-        <option value="Mediterranean">Mediterranean</option>
-        <option value="Mexican">Mexican</option>
-        <option value="Middle%20Eastern">Middle Eastern</option>
-        <option value="Nordic">Nordic</option>
-        <option value="South%20American">South American</option>
-        <option value="South%20East%20Asia">South East Asia</option>
-    </select>
-    <button type="submit">Search recipes</a></button>
-</form>
+

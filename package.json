@@ -7,6 +7,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^4.6.0",
@@ -15,8 +16,12 @@
     "express": "^4.18.1",
     "express-session": "^1.17.3",
     "hbs": "^4.2.0",
+    "jquery": "^3.6.1",
+    "jquery-slim": "^3.0.0",
+    "jsdeliver": "^1.0.0",
     "mongoose": "^6.6.1",
     "morgan": "^1.10.0",
+    "popper.js": "^1.16.1",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {

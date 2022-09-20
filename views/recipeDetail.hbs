@@ -1,7 +1,16 @@
+<section class="recipeDetail">
 <img src="{{recipeDetail.images.LARGE.url}}"onerror="this.onerror=null; this.src='{{recipeDetail.images.REGULAR.url}}'"/>
+<div>
+    <form method="post" action="/profile/create/{{uri}}">
+<input type="text" name="label" style="display: none;" value="{{recipeDetail.label}}"/>
+<input type="text" name="thumbnail" style="display: none;" value="{{recipeDetail.images.THUMBNAIL.url}}"/>
+<button id="recipeButton"type="submit">Save Recipe</button>
+</form>
 <h1>{{recipeDetail.label}}</h1>
+<div id="yieldAndUrl">
 <h3>Serves {{recipeDetail.yield}}</h3>
 <h2><a href='{{recipeDetail.url}}'>Full Recipe</a></h2>
+</div>
 <h2>Ingredients</h2>
 <ul> 
 {{#each recipeDetail.ingredientLines}}
@@ -14,9 +23,10 @@
 <li>{{this.label}} - {{this.quantity}} {{this.unit}}</li>
 {{/each}}
 </ul>
-<form method="post" action="/profile/create/{{recipeDetail.uriSplit}}">
-<button type="submit">Save Recipe</button>
-</form>
+</div>
+</section>
+
+
 
 
 

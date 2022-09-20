@@ -1,13 +1,17 @@
-<h1>Register</h1>
+<h1 class="login">Register</h1>
 
-<form action="/register" method="post">
-    <label>Email address:</label>
+<form class="registerForm"action="/register" method="post">
+    <div>
+    <label>Email address</label>
     <input type="email" name="email"/>
-    <label>Username:</label>
+    <label>Username</label>
     <input type="text" name="username"/>
-    <label>Password:</label>
+    </div>
+    <div>
+    <label>Password</label>
     <input type="password" name="password"/>
-    <label>Confirm Password:</label>
+    <label>Confirm Password</label>
     <input type="password" name="passwordConfirm"/>
+    </div>
     <button type="submit">Create Account</button>
 </form>

@@ -1,6 +1,10 @@
 
 <h1> Recipes</h1>
+<div class="searchFlexWrap">
 {{#each searchResult}}
+<div class="searchResult">
 <h2><a href="/recipeDetail/{{uri}}">{{label}} </a></h2>
-<img src="{{thumbnail}}"/>"
+<img src="{{thumbnail}}"/>
+</div>
 {{/each}}
+</div>

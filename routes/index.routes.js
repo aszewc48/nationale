@@ -6,6 +6,8 @@ const CuisineService = require('../services/cuisine.service')
 const {isAuthenticated,isNotAuthenticated} = require('../middlewares/auth.middleware');
 const User = require("../models/User.model");
 const e = require("express");
+const Recipe = require("../models/Recipe.model");
+const { db, find } = require("../models/User.model");
 
 const edamamApi = new CuisineService();
 
@@ -15,7 +17,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get('/login', (req,res,next) => {
+router.get('/login', isNotAuthenticated, (req,res,next) => {
   res.render('login.hbs')
 })
 
@@ -40,7 +42,7 @@ router.post('/login', isNotAuthenticated, (req,res,next) => {
   })
 })
 
-router.get('/register', (req,res,next) => {
+router.get('/register', isNotAuthenticated, (req,res,next) => {
   res.render('register.hbs')
 })
 
@@ -64,6 +66,7 @@ router.post('/register', (req,res,next) => {
   let userName = req.body.username
   if(userName.length < 4) {
     res.send('Must insert at least four characters into username field')
+    return
   }
   let myHashedPassword = bcryptjs.hashSync(passWord)
   User.create({
@@ -73,16 +76,31 @@ router.post('/register', (req,res,next) => {
   })
   .then(data => {
     console.log('New registration data:', data)
-    res.redirect('/login')
+    res.redirect('/')
   })
   .catch(err => res.send('Something went wrong', err))
 })
 
 router.get('/profile', isAuthenticated, (req,res,next) => {
-  res.render('profile.hbs', {user: req.session.user})
+  Recipe.find({user: req.session.user})
+  .then(allSavedData => {
+    console.log('All saved data', allSavedData)
+  res.render('profile.hbs', {
+    user: req.session.user,
+    data: allSavedData
+  })
+})
 })
 
-router.get("/getFoodCountry", (req,res,next) => {
+router.get('/logout', (req,res,next) => {
+  req.session.destroy()
+  res.redirect('/')
+})
+
+router.get('/search', (req,res,next) => {
+  res.render('search.hbs')
+})
+router.get("/searchCuisine", (req,res,next) => {
   let foodName = req.query.name
   console.log('food data:', foodName)
   let foodCuisine = req.query.cuisine
@@ -114,13 +132,38 @@ router.get('/recipeDetail/:id', (req,res,next) => {
     let uriSplit = element.uri.split('#recipe_')[1]
     console.log(uriSplit)
     // res.send(result.data.recipe)
-    res.render('recipeDetail.hbs', {recipeDetail: element})
+    res.render('recipeDetail.hbs', {
+      recipeDetail: element,
+      uri: uriSplit,
+    })
   })
   .catch(err => console.log('Error getting single item:', err))
 })
 
-router.post('/profile/create/:id', (req,res,next) => {
-  res.send('We made it')
+router.post('/profile/create/:id', isAuthenticated, (req,res,next) => {
+  let NewRecipeId = req.params.id
+  let newLabel = req.body.label
+  let newThumbnail = req.body.thumbnail
+  Recipe.create({
+    label: newLabel,
+    thumbnail: newThumbnail,
+    apiId: NewRecipeId,
+    user: req.session.user
+  })
+  .then(newRecipeData => {
+    console.log('New recipe data:', newRecipeData)
+    res.redirect('/profile')
+  })
+})
+
+router.get('/delete/:id', (req,res,next) => {
+  let recipeId = req.params.id
+  Recipe.findByIdAndDelete(recipeId)
+  .then(deleteData => {
+    console.log('Deletion successful', deleteData)
+    res.redirect('/profile')
+  })
+  .catch(err => console.log('Something went wrong deleting', err))
 })
 
 module.exports = router;
