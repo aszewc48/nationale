@@ -36,7 +36,7 @@ app.use(
         maxAge: 600000 // 600 * 1000 ms === 10 min
       },
       store: MongoStore.create({
-          mongoUrl: 'mongodb://localhost/authExample' || 'mongodb://localhost/basic-auth'
+          mongoUrl: process.env.MONGODB_URI
       })
     })
   );
