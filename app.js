@@ -26,7 +26,7 @@ const app = express();
 
 app.use(
     session({
-      secret: 'keyboard cat',
+      secret: SESSION_SECRET,
       resave: true,
       saveUninitialized: false,
       cookie: {
