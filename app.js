@@ -17,6 +17,10 @@ const hbs = require("hbs");
 // Handlebars.registerHelper('splitUrl', function() {
 //     return this.recipe.uri.split("/").slice(-1,str.length);
 //     });
+hbs.registerHelper("divide", function(a,b) {
+    let answer = (a / b).toFixed(2)
+    return answer;
+  });
 
 const app = express();
 

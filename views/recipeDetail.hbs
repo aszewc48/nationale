@@ -1,5 +1,5 @@
 <section class="recipeDetail">
-<img src="{{recipeDetail.images.LARGE.url}}"onerror="this.onerror=null; this.src='{{recipeDetail.images.REGULAR.url}}'"/>
+<img class="detailImg" src="{{recipeDetail.images.LARGE.url}}"onerror="this.onerror=null; this.src='{{recipeDetail.images.REGULAR.url}}'"/>
 <div>
     <form method="post" action="/profile/create/{{uri}}">
 <input type="text" name="label" style="display: none;" value="{{recipeDetail.label}}"/>
@@ -17,10 +17,12 @@
 <li>{{this}}</li>
 {{/each}}
 </ul>
-<h2>Nutritional Value</h2>
-<ul>
+<h2>Nutritional Value (Per Serving)</h2>
+<ul id="nutrientList">
 {{#each recipeDetail.totalNutrients}}
-<li>{{this.label}} - {{this.quantity}} {{this.unit}}</li>
+<div id="nutrients">
+<li>{{this.label}} - {{divide quantity ../yield}} {{unit}}</li>
+</div>
 {{/each}}
 </ul>
 </div>

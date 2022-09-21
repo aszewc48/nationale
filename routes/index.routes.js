@@ -12,6 +12,7 @@ const { db, find } = require("../models/User.model");
 const edamamApi = new CuisineService();
 
 
+
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -130,11 +131,13 @@ router.get('/recipeDetail/:id', (req,res,next) => {
     console.log('Data getting single item:', result.data)
     let element = result.data.recipe
     let uriSplit = element.uri.split('#recipe_')[1]
-    console.log(uriSplit)
-    // res.send(result.data.recipe)
+    let yield = element.yield
+    let totalNutrient = element.totalNutrients
+    let getNutrient = totalNutrient[Object.keys(totalNutrient)[0]]
     res.render('recipeDetail.hbs', {
       recipeDetail: element,
       uri: uriSplit,
+      yield: yield,
     })
   })
   .catch(err => console.log('Error getting single item:', err))

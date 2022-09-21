@@ -1,12 +1,16 @@
-<h1>Welcome {{user.username}}!</h1>
-
+<div class ='homeSelections'>
 <a href="/search">Search Recipes</a>
 <a href="/logout">Logout</a>
+</div>
 
-<h2>My Recipes</h2>
+<h2 class="myRecipes">My Recipes</h2>
 
+<div class="searchFlexWrap">
 {{#each data}}
+<div class="searchResult">
 <h3><a href="/recipeDetail/{{this.apiId}}">{{this.label}}</a></h3>
 <img src="{{this.thumbnail}}"/>
-<a href="/delete/{{this._id}}">Remove Recipe</a>
+<a class="deleteRecipe" href="/delete/{{this._id}}">Remove Recipe</a>
+</div>
 {{/each}}
+</div>
