@@ -7,7 +7,7 @@
 
 <div class="searchFlexWrap">
 {{#each data}}
-<div class="searchResult">
+<div class="searchResult" id="searchResult">
 <h3><a href="/recipeDetail/{{this.apiId}}">{{this.label}}</a></h3>
 <img src="{{this.thumbnail}}"/>
 <a class="deleteRecipe" href="/delete/{{this._id}}">Remove Recipe</a>

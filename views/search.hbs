@@ -1,5 +1,5 @@
 
-<form class="searchForm"action="/searchCuisine" method="get">
+<form class="searchForm" id="searchForm"action="/searchCuisine" method="get">
     <div>
     <button type="submit" name="cuisine" value="American">American</button>
     <button type="submit" name="cuisine" value="Asian">Asian</button>
@@ -11,7 +11,7 @@
     <button type="submit" name="cuisine" value="French">French</button>
     <button type="submit" name="cuisine" value="Indian">Indian</button>
     </div>
-    <div>
+    <div id="searchKeyword">
         <p>Choose a cuisine to recieve a list of recipes corresponding to what was chosen.
             Adding a keyword to the text box will additionally refine your search.</p>
         <input type="text" name="name" style="text-align: center;" placeholder="(Optional)">

@@ -7,25 +7,128 @@
   font-family: JosefinSans;
   src: url('/fonts/JosefinSans-Italic-VariableFont_wght.ttf')
 }
-@media (max-width: 430px) {
-body {
-  background-image: url('/images/nationaleBG.jpg');
-  background-size: 75%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: rgba(37, 22, 6, 0.938);
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@media (max-width: 1189px) and (min-width: 431px) {
+  #title{
+    margin-top: 15%
+  }
+  body{
+    background-attachment: fixed;
+    background-position: center;
+  }
+}
+@media (max-width: 430px){
+  body {
+    background-image: url('/images/nationaleBG.jpg');
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgba(37, 22, 6, 0.938);
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .title{
+    font-size: 2em
+  }
+  #loginForm{
+    margin-top: 45%;
+  }
+  #loginForm label,
+  #loginForm input,
+  #loginForm button{
+    font-size: 1.5em;
+    width: 60%
+  }
+  #registerForm{
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 45%;
+  }
+  #registerForm div{
+    width: 75%
+  }
+  #login{
+    width: 50%;
+    position: absolute;
+    right: 25%;
+    top: 15%
+  }
+  #searchForm{
+    margin-top: 65%;
+  }
+  #searchKeyword{
+    position: absolute;
+    top: 12%
+  }
+  #searchResult{
+    width: 85%
+  }
+  #recipesLabel{
+    width: 45%
+  }
+  #detailImg{
+    width: 100%;
+  }
+}
+@media (min-width: 430px) and (max-width: 770px){
+  #loginForm{
+    margin-top: 30%
+  }
+  #registerForm{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 35%;
+  }
+  #searchForm{
+    margin-top: 35%
+  }
+  #searchForm div{
+    width: 50%
+  }
+  #searchKeyword{
+    position: absolute;
+    top: 15%
+  }
+  #searchResult{
+    width: 40%
+  }
+  #recipesLabel{
+    width: 30%
+  }
+  #detailImg{
+    width: 100%;
+  }
+}
+@media (min-width: 430px) and (max-width: 650px){
+  #searchForm{
+    margin-top: 50%
+  }
+}
+@media (max-width: 500px){
+  #searchForm{
+    flex-direction: column;
+    align-items: center;
+  }
+  #searchForm div{
+    width: 75%
+  }
+}
+@media (min-width: 420px){
+.title{
+  font-size: 3em;
 }
 }
 body {
   /* font-family: JosefinSans; */
   background-image: url('/images/nationaleBG.jpg');
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-color: rgba(37, 22, 6, 0.938);
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
 }
 a,
 span {
@@ -119,7 +222,7 @@ span{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20%
+  width: 30%
 }
 .searchForm p{
   font-family: JosefinSans;
@@ -148,6 +251,19 @@ span{
   border-radius: 12px;
   width: 15%;
   margin-right: 5%;
+}
+.recipesLabel{
+  display: flex;
+  justify-content: center;
+  font-family: JosefinSans;
+  text-align: center;
+  border: 1px solid lightgoldenrodyellow;
+  background-color: lightgoldenrodyellow;
+  width: 25%;
+  padding: 1%;
+  margin: 1% 0;
+  border-radius: 12px;
+  text-decoration: none;
 }
 .recipeDetail{
   display: flex;
@@ -229,4 +345,14 @@ span{
   border-radius: 0px;
   width: 20%;
   margin-right: 1%
+}
+@media (min-width: 430px) and (max-width: 650px){
+  #nutrients{
+    width: 40%
+  }
+}
+@media (max-width: 429px){
+  #nutrients{
+    width: 75%
+  }
 }
